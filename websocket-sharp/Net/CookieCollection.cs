@@ -70,6 +70,12 @@ namespace WebSocketSharp.Net
       _list = new List<Cookie> ();
     }
 
+    public CookieCollection (string headers)
+    {
+        CookieCollection tmp = CookieCollection.parseRequest (headers);
+        _list = new List<Cookie> (tmp._list);
+    }
+       
     #endregion
 
     #region Internal Properties
